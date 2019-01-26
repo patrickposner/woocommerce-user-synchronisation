@@ -1,1 +1,33 @@
-[]
+[
+    {
+        "name": "anthonybudd/wp_route",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/anthonybudd/WP_Route.git",
+            "reference": "0fbb2c2a7c754acaee429696e30fe8cc8284de88"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/anthonybudd/WP_Route/zipball/0fbb2c2a7c754acaee429696e30fe8cc8284de88",
+            "reference": "0fbb2c2a7c754acaee429696e30fe8cc8284de88",
+            "shasum": ""
+        },
+        "time": "2018-03-13T16:10:26+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "files": [
+                "src/WP_Route.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "Anthony Budd",
+                "email": "anthonybudd94@gmail.com"
+            }
+        ]
+    }
+]

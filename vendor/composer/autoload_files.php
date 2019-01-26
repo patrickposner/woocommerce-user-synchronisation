@@ -6,5 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    '83f5eb8f1a698ab3af3ebf8ad62e9333' => $baseDir . '/src/class-ut-admin.php',
+    '5f3943c0774896047380645685ad5e10' => $vendorDir . '/anthonybudd/wp_route/src/WP_Route.php',
+    '0d077f77ce94f343ff63cacc624c35cf' => $baseDir . '/src/class-wus-admin.php',
+    '3121495a34851eaab49be4f1354828ef' => $baseDir . '/src/class-wus-sender.php',
+    '87c1b945ab965e4587439b6075ceccbd' => $baseDir . '/src/class-wus-receiver.php',
 );
