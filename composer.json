@@ -1,0 +1,20 @@
+{
+    "name": "patrickposner/refer-a-friend",
+    "description": "user transfer between sites",
+    "type": "wordpress-plugin",
+    "require": {
+    },
+    "license": "gpl",
+    "authors": [
+      {
+        "name": "Patrick Posner",
+        "email": "hello@patrickposner.de"
+      }
+    ],
+    "autoload": {
+      "classmap": [],
+      "files": [
+        "src/class-ut-admin.php"
+      ]
+    }
+}
