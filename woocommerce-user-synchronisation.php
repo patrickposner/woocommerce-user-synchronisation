@@ -7,6 +7,8 @@ Author: patrickposner
 Version: 1.0
 */
 
+define( 'WUS_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
+
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require __DIR__ . '/vendor/autoload.php';
 }

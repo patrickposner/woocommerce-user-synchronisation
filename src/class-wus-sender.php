@@ -14,10 +14,12 @@ class WUS_Sender {
 	public static function get_instance() {
 		new WUS_Sender();
 	}
-
+	/**
+	 * The Constructor of WUS_Sender
+	 */
 	public function __construct() {
-		/* todo: setup ajax call to trigger send() */
-		add_action('wp_head', array( $this, 'send') );
+		add_action( 'wp_ajax_send_users', array( $this, 'send_users' ) );
+		add_action( 'wp_ajax_nopriv_send_users', array( $this, 'send_users' ) );
 	}
 
 	/**
@@ -25,7 +27,7 @@ class WUS_Sender {
 	 *
 	 * @return void
 	 */
-	public function send() {
+	public function send_users() {
 
 		$url_option = get_option( 'wc_settings_tab_user_synchronisation_transfer_url' );
 		$url        = $url_option . '/wc-user-transfer';
