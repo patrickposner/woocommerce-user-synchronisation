@@ -17,7 +17,7 @@ class WUS_Sender {
 
 	public function __construct() {
 		/* todo: setup ajax call to trigger send() */
-		//add_action('wp_head', array( $this, 'send') );
+		add_action('wp_head', array( $this, 'send') );
 	}
 
 	/**
@@ -39,7 +39,7 @@ class WUS_Sender {
 			'httpversion' => '1.0',
 			'blocking'    => true,
 			'headers'     => array(),
-			'body'        => $users,
+			'body'        => array( 'wc-tranfered-users' => $users ),
 			'cookies'     => array(),
 			)
 		);
