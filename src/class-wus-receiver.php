@@ -29,8 +29,9 @@ class WUS_Receiver {
 	 * @return void
 	 */
 	public static function receive_request() {
-		$users = $_POST;
-		self::import_user( $users );
+		if ( isset( $_POST['wc-tranfered-users'] ) && ! empty( $_POST['wc-tranfered-users'] ) ) {
+			self::import_user( $_POST['wc-tranfered-users'] );
+		}
 	}
 
 	/**
@@ -52,14 +53,16 @@ class WUS_Receiver {
 				if ( false === $old_user ) {
 					/*create user and update meta */
 					$userdata = array(
-						'user_login'   => $user['user_login'],
-						'password'     => $user['user_pass'],
-						'nice_name'    => $user['user_nicename'],
-						'user_mail'    => $user['user_email'],
-						'display_name' => $user['display_name'],
+						'user_login'    => $user['user_login'],
+						'user_pass'     => null,
+						'user_nicename' => $user['nice_name'],
+						'user_email'    => $user['user_mail'],
+						'display_name'  => $user['display_name'],
 					);
 
-					$user_id = wp_insert_user( $userdata );
+					$user_id  = wp_insert_user( $userdata );
+					$user_obj = new \WP_User( $user_id );
+					$user_obj->set_role( 'customer' );
 
 					update_user_meta( $user_id, 'billing_first_name', $user['billing_first_name'] );
 					update_user_meta( $user_id, 'billing_last_name', $user['billing_last_name'] );
@@ -107,8 +110,12 @@ class WUS_Receiver {
 					update_user_meta( $user_id, 'shipping_country', $user['shipping_country'] );
 					update_user_meta( $user_id, 'shipping_state', $user['shipping_state'] );
 				}
+				global $wpdb;
+
+				$wpdb->query( 
+					$wpdb->prepare( "UPDATE {$wpdb->prefix}users SET user_pass = %s WHERE user_email LIKE %s", $user['password'], $user['user_mail'] )
+				);
 			}
 		}
 	}
-
 }
