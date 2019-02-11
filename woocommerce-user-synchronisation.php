@@ -17,6 +17,7 @@ $textdomain_dir = plugin_basename( dirname( __FILE__ ) ) . '/languages';
 load_plugin_textdomain( 'woocommerce-user-synchronisation', false, $textdomain_dir );
 
 /* get transfer type to check if sender or receiver */
+update_option( 'wc_settings_tab_user_synchronisation_transfer_type', 'sender' );
 $transfer_type = get_option( 'wc_settings_tab_user_synchronisation_transfer_type' );
 
 wus\WUS_Admin::get_instance();
