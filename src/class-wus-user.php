@@ -215,18 +215,26 @@ class WUS_User {
 	 */
 	public function send_password_reset_mail( $user_id ) {
 
-		$user       = get_user_by( 'id', $user_id );
-		$reset_key  = get_password_reset_key( $user );
-		$reset_link = '<a href="' . wp_login_url() . "/resetpass/?key=$reset_key&login=" . rawurlencode( $user->user_login ) . '">' . wp_login_url() . "/resetpass/?key=$reset_key&login=" . rawurlencode( $user->user_login ) . '</a>';
+		$user      = get_user_by( 'id', $user_id );
+		$reset_key = get_password_reset_key( $user );
 
-		$message  = __( 'Hi', 'woocommerce-user-synchronisation' ) . ' ' . $user->first_name . ',<br>';
-		$message .= __( 'An account has been created on', 'woocommerce-user-synchronisation' ) . ' ' . get_bloginfo( 'name' ) . ' ' . __( 'for email address', 'woocommerce-user-synchronisation' ) . ' ' . $user->user_email . '<br>';
-		$message .= __( 'Click here to set the password for your account', 'woocommerce-user-synchronisation' ) . ': <br>';
-		$message .= $reset_link . '<br>';
+		if ( empty( $user->first_name ) ) {
+			$name = __( 'Customer', 'woocommerce-user-synchronisation' );
+		} else {
+			$name = $user->first_name;
+		}
+
+		$woocommerce_password_url = wc_lostpassword_url( get_bloginfo( 'url' ) );
+		$woocommerce_reset_url = '<a href="' . $woocommerce_password_url . '?key=' . $reset_key . '&id=' . $user_id . '">' . __( 'Reset Password', 'woocommerce-user-synchronisation' ) . '</a>';
+
+		$message  = __( 'Hi', 'woocommerce-user-synchronisation' ) . ' ' . $name . ',<br>';
+		$message .= __( 'An account has been created on', 'woocommerce-user-synchronisation' ) . ' ' . get_bloginfo( 'name' ) . ' ' . __( 'for email address', 'woocommerce-user-synchronisation' ) . ' ' . $user->user_email . '<br><br>';
+		$message .= __( 'Click here to set the password for your account', 'woocommerce-user-synchronisation' ) . ': ';
+		$message .= $woocommerce_reset_url . '<br>';
 
 		$headers = array( 'Content-Type: text/html; charset=UTF-8' );
 		$to      = $user->user_email;
-		$subject = __( 'Your account on', 'woocommerce-user-synchronisation' ) . ' ' . get_bloginfo( 'name' );
+		$subject = __( 'Your account on', 'woocommerce-user-synchronisation' ) . ' ' . apply_filters( 'wus_send_password_name', get_bloginfo( 'name' ) );
 
 		$mailer          = \WC()->mailer();
 		$wrapped_message = $mailer->wrap_message( $subject, $message );
