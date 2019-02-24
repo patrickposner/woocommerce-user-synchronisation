@@ -32,6 +32,8 @@ class WUS_User {
 		/* add bulk action to user meta */
 		add_filter( 'bulk_actions-users', array( $this, 'register_transfer_action' ) );
 		add_filter( 'handle_bulk_actions-users', array( $this, 'transfer_action_handler' ), 10, 3 );
+		add_filter( 'bulk_actions-users', array( $this, 'register_send_password_action' ) );
+		add_filter( 'handle_bulk_actions-users', array( $this, 'send_password_action_handler' ), 10, 3 );
 
 		/* make it hookable */
 		do_action( 'wus_user', $this );
@@ -178,5 +180,59 @@ class WUS_User {
 		return $redirect_to;
 	}
 
+	/**
+	 * Add user send password bulk action
+	 *
+	 * @param array $bulk_actions the array of bulk actions.
+	 * @return array
+	 */
+	public function register_send_password_action( $bulk_actions ) {
+		$bulk_actions['send_password'] = __( 'Send new Password Mail', 'woocommerce-user-synchronisation' );
+		return $bulk_actions;
+	}
 
+	/**
+	 * Handling user send password action
+	 *
+	 * @param string $redirect_to redirect url.
+	 * @param array  $doaction all actions.
+	 * @param array  $user_ids array of user ids.
+	 * @return string
+	 */
+	public function send_password_action_handler( $redirect_to, $doaction, $user_ids ) {
+		if ( 'send_password' === $doaction ) {
+			foreach ( $user_ids as $user_id ) {
+				$this->send_password_reset_mail( $user_id );
+			}
+		}
+		return $redirect_to;
+	}
+	/**
+	 * Send password reset mail
+	 *
+	 * @param int $user_id current user id.
+	 * @return void
+	 */
+	public function send_password_reset_mail( $user_id ) {
+
+		$user       = get_user_by( 'id', $user_id );
+		$reset_key  = get_password_reset_key( $user );
+		$reset_link = '<a href="' . wp_login_url() . "/resetpass/?key=$reset_key&login=" . rawurlencode( $user->user_login ) . '">' . wp_login_url() . "/resetpass/?key=$reset_key&login=" . rawurlencode( $user->user_login ) . '</a>';
+
+		$message  = __( 'Hi', 'woocommerce-user-synchronisation' ) . ' ' . $user->first_name . ',<br>';
+		$message .= __( 'An account has been created on', 'woocommerce-user-synchronisation' ) . ' ' . get_bloginfo( 'name' ) . ' ' . __( 'for email address', 'woocommerce-user-synchronisation' ) . ' ' . $user->user_email . '<br>';
+		$message .= __( 'Click here to set the password for your account', 'woocommerce-user-synchronisation' ) . ': <br>';
+		$message .= $reset_link . '<br>';
+
+		$subject = __( 'Your account on', 'woocommerce-user-synchronisation' ) . ' ' . get_bloginfo( 'name' );
+		$headers = array();
+
+		add_filter( 'wp_mail_content_type', function( $content_type ) {
+			return 'text/html'; }
+		);
+		$headers[] = __( 'From', 'woocommerce-user-synchronisation' ) . ': ' . get_bloginfo( 'name' ) . ' <' . get_bloginfo( 'admin_email' ) . '>' . "\r\n";
+		wp_mail( $email, $subject, $message, $headers );
+
+		remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+	}
 }
