@@ -84,6 +84,7 @@ class WUS_Receiver {
 					update_user_meta( $user_id, 'shipping_postcode', $user['shipping_postcode'] );
 					update_user_meta( $user_id, 'shipping_country', $user['shipping_country'] );
 					update_user_meta( $user_id, 'shipping_state', $user['shipping_state'] );
+					update_user_meta( $user_id, 'wus_transfer_user', 'yes' );
 
 				} else {
 					/* update user meta only */
@@ -109,6 +110,7 @@ class WUS_Receiver {
 					update_user_meta( $user_id, 'shipping_postcode', $user['shipping_postcode'] );
 					update_user_meta( $user_id, 'shipping_country', $user['shipping_country'] );
 					update_user_meta( $user_id, 'shipping_state', $user['shipping_state'] );
+					update_user_meta( $user_id, 'wus_transfer_user', 'yes' );
 				}
 				global $wpdb;
 

@@ -108,6 +108,7 @@ class WUS_Sender {
 					'shipping_postcode'   => get_user_meta( $user->ID, 'shipping_postcode', true ),
 					'shipping_country'    => get_user_meta( $user->ID, 'shipping_country', true ),
 					'shipping_state'      => get_user_meta( $user->ID, 'shipping_state', true ),
+					'wus_transfer_user'   => 'yes',
 				);
 
 				array_push( $tranferable_users, $tranferable_user );
