@@ -1,0 +1,144 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: WooCommerce User Synchronisation\n"
+"POT-Creation-Date: 2019-02-24 13:53+0100\n"
+"PO-Revision-Date: 2019-02-24 13:59+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: woocommerce-user-synchronisation.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: de_DE\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: src/class-wus-admin.php:51
+msgid "User Synchronisation"
+msgstr "User Synchronisation"
+
+#: src/class-wus-admin.php:70
+msgid "Transfer Settings"
+msgstr "Übertragungseinstellungen"
+
+#: src/class-wus-admin.php:76
+msgid "Transfer URL"
+msgstr "Übertragungs-URL"
+
+#: src/class-wus-admin.php:78
+msgid "The URL where you want to transfer the users"
+msgstr "Die URL zu der du deine Kunden übertragen möchtest"
+
+#: src/class-wus-admin.php:82
+msgid "Number of users per batch"
+msgstr "Anzahl der Nutzer die je Durchlauf transferiert werden"
+
+#: src/class-wus-admin.php:84
+msgid "Number of users prepared for the transfer"
+msgstr "Anzahl der der Nutzer die für die Übertragung vorbereitet werden"
+
+#: src/class-wus-admin.php:90
+msgid "Transfer Type"
+msgstr "Übertragungs-Typ"
+
+#: src/class-wus-admin.php:92
+msgid "Sender"
+msgstr "Sender"
+
+#: src/class-wus-admin.php:93
+msgid "Receiver"
+msgstr "Empfänger"
+
+#: src/class-wus-admin.php:96
+msgid "Is the current page the sender or the receiver of the user transfer?"
+msgstr "Ist der aktuelle Shop Sender oder Empfänger der Kunden-Daten?"
+
+#: src/class-wus-admin.php:100
+msgid "Send User Transfer"
+msgstr "Transferiere Kunden"
+
+#: src/class-wus-admin.php:102
+msgid "Run the transfer with the selected settings."
+msgstr "Führt den Transfer mit den eingestellten Optionen aus."
+
+#. Plugin Name of the plugin/theme
+#: src/class-wus-user.php:56
+msgid "WooCommerce User Synchronisation"
+msgstr "WooCommerce User Synchronisation"
+
+#: src/class-wus-user.php:60
+msgid "Transfer this user"
+msgstr "Diesen Kunden übertragen"
+
+#: src/class-wus-user.php:63 src/class-wus-user.php:129
+#: src/class-wus-user.php:132
+msgid "No"
+msgstr "Nein"
+
+#: src/class-wus-user.php:64 src/class-wus-user.php:135
+msgid "Yes"
+msgstr "Ja"
+
+#: src/class-wus-user.php:86
+msgid ""
+"<strong>ERROR</strong>: Please decide wether or not the current user is "
+"transferable"
+msgstr ""
+"<strong>Fehler</strong>: Bitte entscheide ob der Kunde übertragen werden "
+"soll oder nicht"
+
+#: src/class-wus-user.php:112
+msgid "User Transfer"
+msgstr "Kundenübertragung"
+
+#: src/class-wus-user.php:150
+msgid "Set / Unset Transfer"
+msgstr "Aktiviere / Deaktiviere Übertragung"
+
+#: src/class-wus-user.php:190
+msgid "Send new Password Mail"
+msgstr "Sende \"Neues Passwort\" E-Mail"
+
+#: src/class-wus-user.php:222
+msgid "Customer"
+msgstr "Kunde"
+
+#: src/class-wus-user.php:228
+msgid "Reset Password"
+msgstr "Passwort zurücksetzen"
+
+#: src/class-wus-user.php:230
+msgid "Hi"
+msgstr "Hallo"
+
+#: src/class-wus-user.php:231
+msgid "An account has been created on"
+msgstr "Ein Konto wurde erstellt bei"
+
+#: src/class-wus-user.php:231
+msgid "for email address"
+msgstr "für die E-Mail Adresse"
+
+#: src/class-wus-user.php:232
+msgid "Click here to set the password for your account"
+msgstr "Klicke hier um dein Passwort für dein Konto zu setzen"
+
+#: src/class-wus-user.php:237
+msgid "Your account on"
+msgstr "Dein Konto bei"
+
+#. Description of the plugin/theme
+msgid "Plugin to synchronize users between woocommerce stores"
+msgstr "Plugin um Kundendaten von einem Shop in einen anderen zu übertragen"
+
+#. Author of the plugin/theme
+msgid "patrickposner"
+msgstr "patrickposner"

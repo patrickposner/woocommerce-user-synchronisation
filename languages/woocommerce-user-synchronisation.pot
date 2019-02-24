@@ -1,0 +1,142 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WooCommerce User Synchronisation\n"
+"POT-Creation-Date: 2019-02-24 13:53+0100\n"
+"PO-Revision-Date: 2019-02-24 13:53+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: woocommerce-user-synchronisation.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: src/class-wus-admin.php:51
+msgid "User Synchronisation"
+msgstr ""
+
+#: src/class-wus-admin.php:70
+msgid "Transfer Settings"
+msgstr ""
+
+#: src/class-wus-admin.php:76
+msgid "Transfer URL"
+msgstr ""
+
+#: src/class-wus-admin.php:78
+msgid "The URL where you want to transfer the users"
+msgstr ""
+
+#: src/class-wus-admin.php:82
+msgid "Number of users per batch"
+msgstr ""
+
+#: src/class-wus-admin.php:84
+msgid "Number of users prepared for the transfer"
+msgstr ""
+
+#: src/class-wus-admin.php:90
+msgid "Transfer Type"
+msgstr ""
+
+#: src/class-wus-admin.php:92
+msgid "Sender"
+msgstr ""
+
+#: src/class-wus-admin.php:93
+msgid "Receiver"
+msgstr ""
+
+#: src/class-wus-admin.php:96
+msgid "Is the current page the sender or the receiver of the user transfer?"
+msgstr ""
+
+#: src/class-wus-admin.php:100
+msgid "Send User Transfer"
+msgstr ""
+
+#: src/class-wus-admin.php:102
+msgid "Run the transfer with the selected settings."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: src/class-wus-user.php:56
+msgid "WooCommerce User Synchronisation"
+msgstr ""
+
+#: src/class-wus-user.php:60
+msgid "Transfer this user"
+msgstr ""
+
+#: src/class-wus-user.php:63 src/class-wus-user.php:129
+#: src/class-wus-user.php:132
+msgid "No"
+msgstr ""
+
+#: src/class-wus-user.php:64 src/class-wus-user.php:135
+msgid "Yes"
+msgstr ""
+
+#: src/class-wus-user.php:86
+msgid ""
+"<strong>ERROR</strong>: Please decide wether or not the current user is "
+"transferable"
+msgstr ""
+
+#: src/class-wus-user.php:112
+msgid "User Transfer"
+msgstr ""
+
+#: src/class-wus-user.php:150
+msgid "Set / Unset Transfer"
+msgstr ""
+
+#: src/class-wus-user.php:190
+msgid "Send new Password Mail"
+msgstr ""
+
+#: src/class-wus-user.php:222
+msgid "Customer"
+msgstr ""
+
+#: src/class-wus-user.php:228
+msgid "Reset Password"
+msgstr ""
+
+#: src/class-wus-user.php:230
+msgid "Hi"
+msgstr ""
+
+#: src/class-wus-user.php:231
+msgid "An account has been created on"
+msgstr ""
+
+#: src/class-wus-user.php:231
+msgid "for email address"
+msgstr ""
+
+#: src/class-wus-user.php:232
+msgid "Click here to set the password for your account"
+msgstr ""
+
+#: src/class-wus-user.php:237
+msgid "Your account on"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Plugin to synchronize users between woocommerce stores"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "patrickposner"
+msgstr ""
