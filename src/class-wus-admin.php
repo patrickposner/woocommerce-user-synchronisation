@@ -37,6 +37,7 @@ class WUS_Admin {
 	 */
 	public function add_user_transfer_scripts() {
 		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+		wp_enqueue_style( 'user-transfer-css', WUS_URL . '/assets/user-transfer' . $suffix . '.css', '1.0', true );
 		wp_enqueue_script( 'user-transfer-js', WUS_URL . '/assets/user-transfer' . $suffix . '.js', array( 'jquery' ), '1.0', true );
 		wp_localize_script( 'user-transfer-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 	}
@@ -126,7 +127,6 @@ class WUS_Admin {
 				<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
 				<?php echo $description['tooltip_html']; ?>
 			</th>
-
 			<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ); ?>">
 				<input
 						name ="<?php echo esc_attr( $value['name'] ); ?>"
@@ -135,7 +135,8 @@ class WUS_Admin {
 						style="<?php echo esc_attr( $value['css'] ); ?>"
 						value="<?php echo esc_attr( $value['name'] ); ?>"
 						class="<?php echo esc_attr( $value['class'] ); ?>"
-				/> 
+				/>
+				<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 				<?php echo $description['description']; ?>
 			</td>
 		</tr>
