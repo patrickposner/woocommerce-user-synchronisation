@@ -69,11 +69,13 @@ class WUS_Sender {
 		for ( $count = 0; $count < $number_of_users; $count++ ) {
 
 			$args = array(
-				'role'    => 'customer',
-				'orderby' => 'login',
-				'order'   => 'ASC',
-				'number'  => $number_of_users,
-				'offset'  => $count * $number_of_users,
+				'role'       => 'customer',
+				'orderby'    => 'login',
+				'order'      => 'ASC',
+				'meta_key'   => 'wus_transfer_user',
+				'meta_value' => 'yes',
+				'number'     => $number_of_users,
+				'offset'     => $count * $number_of_users,
 			);
 
 			$users = get_users( $args );

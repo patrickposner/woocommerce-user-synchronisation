@@ -21,6 +21,7 @@ update_option( 'wc_settings_tab_user_synchronisation_transfer_type', 'sender' );
 $transfer_type = get_option( 'wc_settings_tab_user_synchronisation_transfer_type' );
 
 wus\WUS_Admin::get_instance();
+wus\WUS_User::get_instance();
 
 if ( 'sender' === $transfer_type ) {
 	wus\WUS_Sender::get_instance();

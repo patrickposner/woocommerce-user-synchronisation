@@ -10,4 +10,5 @@ return array(
     '0d077f77ce94f343ff63cacc624c35cf' => $baseDir . '/src/class-wus-admin.php',
     '3121495a34851eaab49be4f1354828ef' => $baseDir . '/src/class-wus-sender.php',
     '87c1b945ab965e4587439b6075ceccbd' => $baseDir . '/src/class-wus-receiver.php',
+    '856ed253c999e00629cae7100d19c84c' => $baseDir . '/src/class-wus-user.php',
 );

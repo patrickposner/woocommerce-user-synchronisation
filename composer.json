@@ -17,7 +17,8 @@
         "src/WP_Route.php",
         "src/class-wus-admin.php",
         "src/class-wus-sender.php",
-        "src/class-wus-receiver.php"
+        "src/class-wus-receiver.php",
+        "src/class-wus-user.php"
       ]
     }
 }
