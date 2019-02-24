@@ -224,15 +224,15 @@ class WUS_User {
 		$message .= __( 'Click here to set the password for your account', 'woocommerce-user-synchronisation' ) . ': <br>';
 		$message .= $reset_link . '<br>';
 
+		$headers = array( 'Content-Type: text/html; charset=UTF-8' );
+		$to      = $user->user_email;
 		$subject = __( 'Your account on', 'woocommerce-user-synchronisation' ) . ' ' . get_bloginfo( 'name' );
-		$headers = array();
 
-		add_filter( 'wp_mail_content_type', function( $content_type ) {
-			return 'text/html'; }
-		);
-		$headers[] = __( 'From', 'woocommerce-user-synchronisation' ) . ': ' . get_bloginfo( 'name' ) . ' <' . get_bloginfo( 'admin_email' ) . '>' . "\r\n";
-		wp_mail( $email, $subject, $message, $headers );
+		$mailer          = \WC()->mailer();
+		$wrapped_message = $mailer->wrap_message( $subject, $message );
+		$wc_email        = new \WC_Email();
+		$html_message    = $wc_email->style_inline( $wrapped_message );
 
-		remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+		wp_mail( $to, $subject, $html_message, $headers );
 	}
 }
